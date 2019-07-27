@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// REACT 
+import React, { Component } from "react";
+import { Route } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 
-function App() {
+// COMPONENTS
+// import PrivateRoute from './components/PrivateRoute.js'
+import LandingPage from "./views/LandingPage.js";
+import LoginPage from "./views/Login.js";
+import RegisterPage from "./views/Register.js";
+
+// -- *** -- START CODE -- *** -- //
+// -- *** -- START CODE -- *** -- //
+
+class App extends Component {
+render() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>WELCOME TO HOME MANAGER</h1>
+
+      <Route exact path='/' component={LandingPage} />
+      <Route exact path='/login' component={LoginPage} />
+      <Route exact path='/register' component={RegisterPage} />
+
     </div>
   );
+}
 }
 
 export default App;
