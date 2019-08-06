@@ -6,6 +6,10 @@ import { Link } from 'react-router-dom'
 // -- *** -- START CODE -- *** -- //
 
 class LandingPage extends Component {
+    state = {
+        logged_in: false
+    }
+    
     render() {
         return (
             <div className="Container">

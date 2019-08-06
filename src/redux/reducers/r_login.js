@@ -10,6 +10,7 @@ const initialState = {
     is_loggingIn: false,
     error:'',
 
+    token: undefined,
     result: undefined
 }
 
@@ -29,7 +30,7 @@ export const login_reducer = (state = initialState, action) => {
             return {
                 ...state,
 
-                result: action.payload.data,
+                token: action.payload.data.token,
 
                 is_loggingIn: false,
                 error:''

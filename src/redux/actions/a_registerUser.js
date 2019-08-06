@@ -16,10 +16,10 @@ import axios from "axios";
             dispatch({ type: REGISTER_START })
 
             // START AXIOS CALL
-            axios
+            return axios
                 .post(
-                    // 'http://localhost:1313/register',
-                    'https://home-manager-backend.herokuapp.com/register',
+                    'http://localhost:1313/register',
+                    // 'https://home-manager-backend.herokuapp.com/register',
                     registerInfo
                 )
                 .then( res => {

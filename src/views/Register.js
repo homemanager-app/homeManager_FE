@@ -77,7 +77,7 @@ class RegisterPage extends Component {
     registerSubmit = e => {
         e.preventDefault();
         console.log('this.state', this.state)
-        this.props.registerUser(this.state)
+        this.props.registerUser(this.state).then(() => this.props.history.push('/login'))
     }
 }
 

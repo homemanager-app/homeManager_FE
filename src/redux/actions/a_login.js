@@ -15,10 +15,10 @@ import axios from 'axios'
             dispatch({ type: LOGIN_START })
 
             // START AXIOS CALL
-            axios
+            return axios
                 .post(
-                    // 'http://localhost:1313/login',
-                    'https://home-manager-backend.herokuapp.com/login',
+                    'http://localhost:1313/login',
+                    // 'https://home-manager-backend.herokuapp.com/login',
                     loginInfo
                 )
                 .then( res => {

@@ -29,6 +29,9 @@ class LoginPage extends Component {
 
                     <Link to="/register">Register Page</Link>
                     <br />
+                    
+                    <Link to="/homepage">Homepage Page</Link>
+                    <br />
                 </div>
 
                 <div className='registerForm'>
@@ -41,8 +44,8 @@ class LoginPage extends Component {
                         ></input>
                         <input
                             id='pw'
-                            type='text'
-                            placeholder='Last Name'
+                            type='password'
+                            placeholder='Password'
                             onChange={this.inputChange}
                         ></input>
                         <button>
@@ -61,8 +64,15 @@ class LoginPage extends Component {
     
     registerSubmit = e => {
         e.preventDefault();
+
+        const loginObject = {
+            userName: this.state.userName,
+            pw: this.state.pw
+        }
+        console.log('loginObject', loginObject)
+
         console.log('this.state', this.state)
-        this.props.login(this.state)
+        this.props.login(this.state).then(() => this.props.history.push('/homepage'))
     }
 }
 
