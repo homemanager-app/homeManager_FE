@@ -1,30 +1,44 @@
 // REACT 
 import React, { Component } from "react";
 import { Link } from 'react-router-dom'
+import styled from 'styled-components'
 
 // -- *** -- START CODE -- *** -- //
 // -- *** -- START CODE -- *** -- //
+
+// STYLED COMPONENTS
+
+const Styled_Container = styled.div`
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+`
+
+const Actions = styled.div`
+    display: flex;
+    flex-direction: row;
+`;
+    
+const Styled_Link = styled(Link)`    
+    text-decoration: none;
+    color: orange;
+
+    font-size: 20px;
+    margin-left: 15px;
+`
 
 class LandingPage extends Component {
-    state = {
-        logged_in: false
-    }
-    
     render() {
         return (
-            <div className="Container">
-                <div className="DummyNav">
-                    <h1>Landing Page</h1>
-                    <Link to="/">Landing Page</Link>
-                    <br />
+            <Styled_Container>
+                <h1>Home Manager - Landing Page</h1>
+                <Actions>                
+                    <Styled_Link to="/login">Login</Styled_Link>                    
 
-                    <Link to="/login">Login Page</Link>
-                    <br />
-
-                    <Link to="/register">Register Page</Link>
-                    <br />
-                </div>
-            </div>
+                    <Styled_Link to="/register">Owner Registration</Styled_Link>                    
+                </Actions>
+            </Styled_Container>
         );
     }
 }

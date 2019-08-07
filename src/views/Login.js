@@ -2,12 +2,48 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom'
 import { connect } from "react-redux";
+import styled from 'styled-components'
 
 // IMPORT ACTION CREATORS
     import { login } from '../redux/actions/a_login'
 
 // -- *** -- START CODE -- *** -- //
 // -- *** -- START CODE -- *** -- //
+
+// STYLED COMPONENTS
+
+const Styled_Container = styled.div`
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+`
+
+const Actions = styled.div`
+    display: flex;
+    flex-direction: row;
+`;
+
+const Styled_Link = styled(Link)`    
+    text-decoration: none;
+    color: orange;
+
+    font-size: 20px;
+    margin-left: 15px;
+`
+
+const Styled_form = styled.form`
+    display: flex;
+    flex-direction: column;
+    align-items: center
+    flex-wrap: wrap;
+    margin-top: 20px;
+
+    input {
+        margin-bottom: 15px;
+        border-radius: 5px;
+    }
+`
 
 class LoginPage extends Component {
     state = {
@@ -17,25 +53,15 @@ class LoginPage extends Component {
     
     render() {
         return (
-            <div className="Container">
+            <Styled_Container>
                 <h1>Login Page</h1>
+                <Actions className="DummyNav">
+                    <Styled_Link to="/">Landing Page</Styled_Link>
 
-                <div className="DummyNav">
-                    <Link to="/">Landing Page</Link>
-                    <br />
-
-                    <Link to="/login">Login Page</Link>
-                    <br />
-
-                    <Link to="/register">Register Page</Link>
-                    <br />
-                    
-                    <Link to="/homepage">Homepage Page</Link>
-                    <br />
-                </div>
-
+                    <Styled_Link to="/register">Register Page</Styled_Link>
+                </Actions>
                 <div className='registerForm'>
-                    <form onSubmit={this.registerSubmit}>
+                    <Styled_form onSubmit={this.registerSubmit}>
                         <input
                             id='userName'
                             type='text'
@@ -51,9 +77,13 @@ class LoginPage extends Component {
                         <button>
                             Submit
                         </button>
-                    </form>
+                    </Styled_form>
                 </div>
-            </div>
+            </Styled_Container>
+
+
+
+
         );
     }
 
