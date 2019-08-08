@@ -10,7 +10,8 @@ import { BrowserRouter as Router } from "react-router-dom";
     import RegisterPage from "./views/Register.js";
   // -- Protected Routes -- //
     import PrivateRoute from './components/PrivateRoute.js'
-    import Homepage from './views/Homepage.js'
+    import Admin_Homepage from './views/Admin_Homepage.js'
+    import User_Homepage from './views/User_Homepage.js'
 
 // -- *** -- START CODE -- *** -- //
 // -- *** -- START CODE -- *** -- //
@@ -25,7 +26,8 @@ render() {
         <Route exact path='/register' component={RegisterPage} />
 
       {/* // -- Protected Routes -- // */}
-        <PrivateRoute exact path="/homepage" component={Homepage} />
+        <PrivateRoute exact path="/admin/homepage" component={Admin_Homepage} />
+        <PrivateRoute exact path="/user/homepage" component={User_Homepage} />
     </div>
   );
 }

@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { Link } from 'react-router-dom'
 import { connect } from "react-redux";
 import styled from 'styled-components'
+import jwt_decode from 'jwt-decode'
 
 // IMPORT ACTION CREATORS
     import { login } from '../redux/actions/a_login'
@@ -61,7 +62,7 @@ class LoginPage extends Component {
                     <Styled_Link to="/register">Register Page</Styled_Link>
                 </Actions>
                 <div className='registerForm'>
-                    <Styled_form onSubmit={this.registerSubmit}>
+                    <Styled_form onSubmit={this.loginSubmit}>
                         <input
                             id='userName'
                             type='text'
@@ -92,7 +93,7 @@ class LoginPage extends Component {
         this.setState({ [e.target.id]: e.target.value })
     }
     
-    registerSubmit = e => {
+    loginSubmit = e => {
         e.preventDefault();
 
         const loginObject = {
@@ -102,14 +103,25 @@ class LoginPage extends Component {
         console.log('loginObject', loginObject)
 
         console.log('this.state', this.state)
-        this.props.login(this.state).then(() => this.props.history.push('/homepage'))
+        this.props.login(this.state).then(() => {
+            console.log('this.props.token', this.props.token)
+
+            const decodedToken = jwt_decode(this.props.token)
+            console.log('decodedToken', decodedToken)
+
+            if (decodedToken.adminCat === 1) {
+                this.props.history.push('/admin/homepage')
+            } else if (decodedToken.adminCat !== 1) {
+                this.props.history.push('/user/homepage')
+            } 
+        })
     }
 }
 
 //  MAP STATE TO PROPS
 const mapStateToProps = state => {
     return {
-
+        token: state.login_reducer.token
     }
 }
 

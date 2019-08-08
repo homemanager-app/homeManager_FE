@@ -9,7 +9,7 @@ import { connect } from "react-redux";
 // -- *** -- START CODE -- *** -- //
 // -- *** -- START CODE -- *** -- //
 
-class Homepage extends Component {
+class Admin_Homepage extends Component {
     state = {
 
     }
@@ -17,7 +17,7 @@ class Homepage extends Component {
     render() {
         return (
             <div className="Container">
-                <h1>Homepage</h1>
+                <h1>ADMIN Homepage</h1>
             </div>
         );
     }
@@ -28,7 +28,7 @@ class Homepage extends Component {
 //  MAP STATE TO PROPS
 const mapStateToProps = state => {
     return {
-
+        token: state.login_reducer.token
     }
 }
 
@@ -37,4 +37,4 @@ export default connect(
     mapStateToProps,
     {
     }
-)(Homepage)
+)(Admin_Homepage)
