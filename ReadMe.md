@@ -4,18 +4,23 @@ Welcome to Home Manager
 ## Table of Contents:
 
 - [Overview](#Overview)
+- [Naming](#Naming)
 - [KeyFeatures](#KeyFeatures)
 - [Design](#Design)
 - [Versions](#Versions)
 
 # Overview
 
-
 - Stakeholder: Landlord
 
 - Description: Your one stop shop as a property owner to expense, monitor, maintain, and manage your properties
 
 - Developer: Reed Turgeon
+
+## Naming
+    - Branches 
+        - feat_featureName
+        - fix_fixName
 
 <br/>
 <br/>
