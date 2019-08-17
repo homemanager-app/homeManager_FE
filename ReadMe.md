@@ -55,4 +55,10 @@ Welcome to Home Manager
     }
 
 ## 1.0.0 
-
+    - Naming Convention & Workflow Updated
+## 1.0.1
+    - Admin Landing Page
+    - Header & Footer
+    
+    
+  
