@@ -36,7 +36,7 @@ const Styled_Link = styled(Link)`
 const Styled_form = styled.form`
     display: flex;
     flex-direction: column;
-    align-items: center
+    align-items: center;
     flex-wrap: wrap;
     margin-top: 20px;
 
@@ -104,16 +104,14 @@ class LoginPage extends Component {
 
         console.log('this.state', this.state)
         this.props.login(this.state).then(() => {
-            console.log('this.props.token', this.props.token)
-
-            const decodedToken = jwt_decode(this.props.token)
-            console.log('decodedToken', decodedToken)
-
-            if (decodedToken.adminCat === 1) {
-                this.props.history.push('/admin/homepage')
-            } else if (decodedToken.adminCat !== 1) {
-                this.props.history.push('/user/homepage')
-            } 
+                if (this.props.currentUser.adminCat === 1) {
+                    this.props.history.push('/admin/homepage')
+                } else if (this.props.currentUser.adminCat === 1) {
+                    this.props.history.push('/user/homepage')
+                } else {
+                    console.log('what is going on')
+                    return 'what is going on'
+                }
         })
     }
 }
@@ -121,7 +119,8 @@ class LoginPage extends Component {
 //  MAP STATE TO PROPS
 const mapStateToProps = state => {
     return {
-        token: state.login_reducer.token
+        token: state.login_reducer.token,
+        currentUser: state.login_reducer.currentUser
     }
 }
 
@@ -132,5 +131,3 @@ export default connect(
         login
     }
 )(LoginPage)
-
-// export default LoginPage;

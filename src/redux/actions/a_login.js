@@ -9,6 +9,7 @@ import axios from 'axios'
 // ACTION CREATOR
     export const login = loginInfo => {
         console.log('inside login action creator')
+        console.log(loginInfo)
 
         // SEND FIRST ACTION
         return dispatch => {

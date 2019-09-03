@@ -9,7 +9,7 @@ import { BrowserRouter as Router } from "react-router-dom";
     import LoginPage from "./views/Login.js";
     import RegisterPage from "./views/Register.js";
   // -- Protected Routes -- //
-    import PrivateRoute from './components/PrivateRoute.js'
+    import PrivateRoute from './components/PrivateRoute.jsx'
     import Admin_Homepage from './views/Admin_Homepage.js'
     import User_Homepage from './views/User_Homepage.js'
 
